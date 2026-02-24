@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jebin's Secure Portal - TEST</title>
+    <style>
+        body { background-color: #0d1117; color: #c9d1d9; font-family: 'Courier New', Courier, monospace; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .container { background: #161b22; padding: 2rem; border-radius: 10px; border: 1px solid #30363d; text-align: center; width: 320px; box-shadow: 0 0 15px #238636; }
+        img.logo { width: 100px; margin-bottom: 20px; }
+        input { width: 90%; padding: 10px; margin: 10px 0; background: #0d1117; border: 1px solid #30363d; color: #3fb950; border-radius: 5px; outline: none; }
+        button { width: 98%; padding: 10px; background-color: #238636; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        #info-page { display: none; }
+        .error { color: #f85149; font-size: 0.8rem; display: none; }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="login-page">
+        <img src="logo.png" alt="Logo">
+        <h2>SECURE ACCESS</h2>
+        <p style="font-size: 0.7rem; color: #8b949e;">ENTER CREDENTIALS</p>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <p id="error-msg" class="error">INVALID ACCESS KEY</p>
+        <button onclick="testLogin()">LOGIN</button>
+    </div>
+
+    <div class="container" id="info-page">
+        <img src="logo.png" alt="Logo" style="width: 50px;">
+        <h2 style="color: #3fb950;">DECRYPTED</h2>
+        <hr style="border: 0.1px solid #30363d;">
+        <p><strong>Status:</strong> Authorized</p>
+        <p><strong>Department:</strong> Cyber Security</p>
+        <p><strong>Message:</strong> This is a local test of the UI.</p>
+        <button onclick="location.reload()" style="background: #da3633;">LOGOUT</button>
+    </div>
+
+    <script>
+        function testLogin() {
+            const user = document.getElementById('username').value;
+            const pass = document.getElementById('password').value;
+
+            // STATIC TEST CREDENTIALS
+            if (user === "jebin" && pass === "mcet2026") {
+                document.getElementById('login-page').style.display = 'none';
+                document.getElementById('info-page').style.display = 'block';
+            } else {
+                document.getElementById('error-msg').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
